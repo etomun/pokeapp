@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PokeApp</string>
+    <string name="img_desc">Awesome Image</string>
+    <string name="title_all_tools">All Tools</string>
+    <string name="title_my_tools">My Tools</string>
+    <string name="title_my_friends">My Friends</string>
+    <string name="title_no_data">No Data</string>
+    <string name="title_available_tools">Available Tools</string>
+    <string name="alert_have_no_loans">No loans</string>
+    <string name="title_loans">Loans</string>
+    <string name="title_add_loan">Add Loan</string>
+    <string name="title_not_found">Not Found</string>
+    <string name="hint_search_friend_name"><font size="15">Search friend</font></string>
+    <string name="title_loaned">Loaned</string>
+    <string name="title_out_of_stock">Out of Stock</string>
+    <string name="alert_return_item">Return &lt;b>1 %1$s&lt;/b> to %2$s?</string>
+    <string name="title_pokemon">Pokemon</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_evolutions">Evolutions</string>
+    <string name="title_weaknesses">Weaknesses</string>
+    <string name="title_abilities">Abilities</string>
+    <string name="title_breeding">Breeding</string>
+    <string name="title_habitat">Habitat</string>
+    <string name="title_egg_group">Egg Group</string>
+    <string name="title_hatch_time">Hatch Time</string>
+    <string name="title_gender">Gender</string>
+    <string name="title_capture">Capture</string>
+    <string name="title_generation">Generation</string>
+    <string name="title_capture_rate">Capture Rate</string>
+    <string name="title_sprites">Sprites</string>
+    <string name="title_normal">Normal</string>
+    <string name="title_shiny">Shiny</string>
+</resources>

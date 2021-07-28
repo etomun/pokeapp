@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="toolbarStyle">@style/MyToolbar</item>
+        <item name="actionOverflowButtonStyle">@style/MyMenuOverFlow</item>
+        <item name="android:textViewStyle">@style/MyTextView</item>
+        <item name="editTextStyle">@style/MyEditText</item>
+        <item name="buttonStyle">@style/MyButton</item>
+        <item name="alertDialogTheme">@style/MyAlertDialogTheme</item>
+        <item name="android:alertDialogTheme">@style/MyAlertDialogTheme</item>
+    </style>
+
+</resources>

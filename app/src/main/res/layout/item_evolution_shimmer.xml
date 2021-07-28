@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/view_12">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="@dimen/view_80"
+            android:layout_height="@dimen/view_80"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/view_48"
+            android:background="@drawable/bg_shimmer_round" />
+
+
+        <View
+            android:layout_width="@dimen/view_64"
+            android:layout_height="@dimen/view_20"
+            android:layout_margin="@dimen/view_4"
+            android:background="@drawable/bg_shimmer_round" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_12"
+        android:layout_marginEnd="@dimen/view_12"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="@dimen/view_100"
+            android:layout_height="@dimen/view_20"
+            android:layout_margin="@dimen/view_4"
+            android:background="@drawable/bg_shimmer_round" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/img_desc"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_long_arrow_right_80"
+            app:tint="@color/black_7" />
+
+        <View
+            android:id="@+id/trigger"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_16"
+            android:gravity="center"
+            android:textColor="@color/accent"
+            android:textSize="@dimen/text_15"
+            tools:text="Lv 16" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="@dimen/view_80"
+            android:layout_height="@dimen/view_80"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/view_48"
+            android:background="@drawable/bg_shimmer_round" />
+
+        <View
+            android:layout_width="@dimen/view_64"
+            android:layout_height="@dimen/view_20"
+            android:layout_margin="@dimen/view_4"
+            android:background="@drawable/bg_shimmer_round" />
+    </LinearLayout>
+</LinearLayout>

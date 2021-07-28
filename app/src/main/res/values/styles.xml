@@ -1,0 +1,115 @@
+<resources>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="toolbarStyle">@style/MyToolbar</item>
+        <item name="actionOverflowButtonStyle">@style/MyMenuOverFlow</item>
+        <item name="android:textViewStyle">@style/MyTextView</item>
+        <item name="editTextStyle">@style/MyEditText</item>
+        <item name="buttonStyle">@style/MyButton</item>
+        <item name="alertDialogTheme">@style/MyAlertDialogTheme</item>
+        <item name="android:alertDialogTheme">@style/MyAlertDialogTheme</item>
+        <item name="checkboxStyle">@style/MyCheckBox</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen.SplashScreen">
+        <item name="android:windowBackground">@drawable/bg_activity_splash</item>
+    </style>
+
+    <!--CUSTOMIZATION-->
+    <!--Toolbar-->
+    <style name="MyToolbar" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="android:gravity">center_vertical</item>
+        <item name="titleTextAppearance">@style/MyToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/MyToolbarSubtitle</item>
+        <item name="android:textViewStyle">@style/MyTextView</item>
+        <item name="editTextStyle">@style/MyEditText</item>
+        <item name="buttonStyle">@style/MyButton</item>
+    </style>
+
+    <style name="MyToolbarTitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/c_3</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MyToolbarSubtitle" parent="MyToolbarTitle">
+        <item name="android:textColor">@color/c_3</item>
+        <item name="android:textSize">@dimen/text_12</item>
+    </style>
+
+    <!--Toolbar Menu-->
+    <style name="MyMenuOverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@android:color/black</item>
+    </style>
+
+    <!--TextView-->
+    <style name="MyTextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--EditText-->
+    <style name="BaseEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="MyEditText" parent="BaseEditText">
+        <item name="android:background">@drawable/bg_my_edit_text</item>
+    </style>
+
+    <!--Button-->
+    <style name="BaseButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="MyButton" parent="BaseButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/bg_my_button</item>
+    </style>
+
+    <!--Checkbox-->
+    <style name="BaseCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="MyCheckBox" parent="BaseCheckBox">
+        <item name="android:textColor">@color/check_box_color</item>
+    </style>
+
+
+    <!--Spinner-->
+
+    <!--AlertDialog-->
+    <style name="MyAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryDark">@color/accent_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+
+    <!--Date Picker Dialog -->
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@+id/pokemon_list">
+
+    <fragment
+        android:id="@+id/pokemon_list"
+        android:name="com.etomun.mobile.pokeapp.presentation.pokemonlist.PokemonListFragment"
+        tools:layout="@layout/fragment_pokemon_list">
+        <action
+            android:id="@+id/to_pokemon_info"
+            app:destination="@id/pokemon_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pokemon_info"
+        android:name="com.etomun.mobile.pokeapp.presentation.pokemoninfo.PokemonInfoFragment"
+        tools:layout="@layout/fragment_pokemon_info">
+
+        <argument
+            android:name="pokemonSum"
+            app:argType="com.etomun.mobile.pokeapp.domain.result.PokemonSum" />
+    </fragment>
+
+</navigation>
