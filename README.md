@@ -1,6 +1,6 @@
 <h1 align="center">PokeApp</h1>
 
-## Tech stack & Open-source libraries
+## Tech stack & libraries
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) based
 - JetPack
