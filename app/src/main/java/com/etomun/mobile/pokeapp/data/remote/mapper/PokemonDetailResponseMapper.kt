@@ -57,7 +57,7 @@ class PokemonDetailResponseMapper @Inject internal constructor(private val conve
         generation = generation.replaceAfter("-", genId).replace("-", " ")
 
         val abilities: ArrayList<Ability> = generateAbilities(resPokemon.abilities, resAbilities)
-        val weaknesses: ArrayList<Weakness> = generateWeaknesses(resTypeDamages, resTypes)
+        val weaknesses: ArrayList<Weakness> = generateWeaknesses(resPokemon, resTypeDamages, resTypes)
         val evolutions: ArrayList<Evolution> = generateEvolutions(resEvolution)
 
         val name = resPokemon.name.orEmpty()
@@ -97,6 +97,7 @@ class PokemonDetailResponseMapper @Inject internal constructor(private val conve
     }
 
     private fun generateWeaknesses(
+        pokemon: PokemonDetailResponse,
         typeDamages: List<TypeDamageResponse>,
         allTypes: TypesResponse
     ): ArrayList<Weakness> {
@@ -106,7 +107,7 @@ class PokemonDetailResponseMapper @Inject internal constructor(private val conve
         allTypes.results?.mapIndexed { i, t ->
             val type = generateType(t.name.orEmpty())
             if (type.typeRes > 0) {
-                result.add(i, Weakness(type, 1.0))
+                result.add(i, Weakness(pokemon.id, type, 1.0))
             }
         }
 
@@ -181,31 +182,46 @@ class PokemonDetailResponseMapper @Inject internal constructor(private val conve
         chains.mapIndexed { i, ch ->
             if (i < chains.size - 1) {
                 val nextChain = chains[i + 1]
-                val from = Species(ch.species?.name.orEmpty(), "")
-                val to = Species(nextChain.species?.name.orEmpty(), "")
                 val detail = nextChain.evolutionDetails?.get(0)
+                val specs: ArrayList<String> = arrayListOf()
+                if (detail?.turnUpsideDown == true) {
+                    specs.add("Being upside down")
+                }
+                detail?.gender?.let {
+                    val gender = when (it) {
+                        1 -> "Only female"
+                        2 -> "Only male"
+                        3 -> "Only genderless"
+                        else -> ""
+                    }
+                    specs.add(gender)
+                }
+                detail?.heldItem?.let { specs.add("Holding $it") }
+                detail?.item?.let { specs.add("Exposed to $it") }
+                detail?.knownMove?.let { specs.add("Move with $it") }
+                detail?.knownMoveType?.let { specs.add("Move with $it type") }
+                detail?.location?.let { specs.add("Located at $it") }
+                detail?.minAffection?.let { specs.add("Affection $it+") }
+                detail?.minBeauty?.let { specs.add("Beauty $it+") }
+                detail?.minHappiness?.let { specs.add("Happiness $it+") }
+                detail?.minLevel?.let { specs.add("Level $it+") }
+                if (detail?.needsOverworldRain == true) {
+                    specs.add("Need over world rain")
+                }
+                detail?.partyType?.let { specs.add("$it's party") }
+                detail?.partySpecies?.let { specs.add("$it's party") }
+                detail?.relativePhysicalStats?.let { specs.add("Physical relative $it") }
+                detail?.tradeSpecies?.let { specs.add("Traded for $it") }
 
+                Timber.d("Trigger ${ch.species?.name} ==> ${specs.joinToString()}")
                 val evolution = Evolution(
-                    from,
-                    to,
+                    chain.id,
+                    ch.species?.name.orEmpty(),
+                    "",
+                    nextChain.species?.name.orEmpty(),
+                    "",
                     detail?.trigger?.name.orEmpty(),
-                    detail?.turnUpsideDown == true,
-                    detail?.gender,
-                    detail?.heldItem?.name,
-                    detail?.item?.name,
-                    detail?.knownMove?.name,
-                    detail?.knownMoveType?.name,
-                    detail?.location?.name,
-                    detail?.minAffection,
-                    detail?.minBeauty,
-                    detail?.minHappiness,
-                    detail?.minLevel,
-                    detail?.needsOverworldRain == true,
-                    detail?.partySpecies?.name,
-                    detail?.partyType?.name,
-                    detail?.relativePhysicalStats,
-                    detail?.timeOfDay,
-                    detail?.tradeSpecies?.name
+                    specs.toString().replace("[", "").replace("]", "")
                 )
                 result.add(evolution)
             }

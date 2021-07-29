@@ -1,18 +1,17 @@
 package com.etomun.mobile.pokeapp.data.remote.mapper
 
-import com.etomun.mobile.pokeapp.common.util.helper.DataConverter
 import com.etomun.mobile.pokeapp.data.base.DataMapper
-import com.etomun.mobile.pokeapp.data.remote.response.SpeciesSumResponse
-import com.etomun.mobile.pokeapp.domain.result.Species
+import com.etomun.mobile.pokeapp.data.remote.response.VarietySumResponse
+import com.etomun.mobile.pokeapp.domain.result.Variety
 import javax.inject.Inject
 
-class SpeciesSumResponseMapper @Inject internal constructor(private val converter: DataConverter) :
-    DataMapper<SpeciesSumResponse?, Species> {
-    override fun fromData(data: Species): SpeciesSumResponse? {
+class VarietySumResponseMapper @Inject internal constructor() :
+    DataMapper<VarietySumResponse?, Variety> {
+    override fun fromData(data: Variety): VarietySumResponse? {
         return null
     }
 
-    override fun toData(source: SpeciesSumResponse?): Species {
+    override fun toData(source: VarietySumResponse?): Variety {
         if (source == null) {
             throw UnsupportedOperationException()
         }
@@ -20,6 +19,6 @@ class SpeciesSumResponseMapper @Inject internal constructor(private val converte
         val default = source.sprites?.frontDefault.orEmpty()
         val official = source.sprites?.other?.officialArtwork?.frontDefault.orEmpty()
         val sprite = if (official.isEmpty()) default else official
-        return Species(name, sprite)
+        return Variety(name, sprite)
     }
 }

@@ -57,7 +57,7 @@
             android:paddingTop="@dimen/view_20">
 
             <View
-                android:layout_width="@dimen/view_120"
+                android:layout_width="@dimen/view_100"
                 android:layout_height="@dimen/view_40"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/view_20"
@@ -65,7 +65,7 @@
                 android:background="@drawable/bg_shimmer_round" />
 
             <View
-                android:layout_width="@dimen/view_120"
+                android:layout_width="@dimen/view_100"
                 android:layout_height="@dimen/view_40"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="@dimen/view_8"

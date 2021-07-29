@@ -23,3 +23,6 @@
 
 PokeApp using the [PokeAPI](https://pokeapi.co/) for constructing RESTful API.<br>
 PokeAPI provides a RESTful API interface to highly detailed objects built from thousands of lines of data related to Pokémon.
+
+## TODO
+- Finish local database and access from local data first

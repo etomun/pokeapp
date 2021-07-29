@@ -33,8 +33,8 @@ interface PokemonApi {
     @GET("pokemon/{name}")
     fun getPokemonDetail(@Path("name") pokemonName: String): Observable<PokemonDetailResponse>
 
-@GET("pokemon/{name}")
-    fun getSpeciesSum(@Path("name") pokemonName: String): Observable<SpeciesSumResponse>
+    @GET("pokemon/{name}")
+    fun getVarietySum(@Path("name") pokemonName: String): Observable<VarietySumResponse>
 
     @GET("pokemon-species/{name}")
     fun getSpeciesDetail(@Path("name") speciesName: String): Observable<SpeciesDetailResponse>

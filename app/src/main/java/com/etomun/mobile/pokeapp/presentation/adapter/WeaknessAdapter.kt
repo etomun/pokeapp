@@ -38,13 +38,7 @@ class WeaknessAdapter(private val items: MutableList<Weakness>) :
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.type)
 
-            val multiplier: String = if (item.multiplier >= 1) {
-                item.multiplier.toString().replace(".0", "")
-            } else {
-                val div = 1 / item.multiplier
-                "1/$div".replace(".0", "")
-            }
-            "$multiplier x".also { binding.multiplier.text = it }
+            binding.multiplier.text = item.multiplierLabel()
         }
 
     }

@@ -3,12 +3,13 @@ package com.etomun.mobile.pokeapp.data.remote.source
 import com.etomun.mobile.pokeapp.data.remote.api.PokemonApi
 import com.etomun.mobile.pokeapp.data.remote.mapper.PokemonDetailResponseMapper
 import com.etomun.mobile.pokeapp.data.remote.mapper.PokemonSumResponseMapper
-import com.etomun.mobile.pokeapp.data.remote.mapper.SpeciesSumResponseMapper
+import com.etomun.mobile.pokeapp.data.remote.mapper.VarietySumResponseMapper
 import com.etomun.mobile.pokeapp.data.remote.response.*
 import com.etomun.mobile.pokeapp.domain.repository.PokemonRepository.DataSource
 import com.etomun.mobile.pokeapp.domain.result.PokemonDetail
 import com.etomun.mobile.pokeapp.domain.result.PokemonSum
-import com.etomun.mobile.pokeapp.domain.result.Species
+import com.etomun.mobile.pokeapp.domain.result.Variety
+import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import timber.log.Timber
@@ -18,8 +19,20 @@ class PokemonRemoteSource @Inject internal constructor(
     private val pokemonApi: PokemonApi,
     private val sumMapper: PokemonSumResponseMapper,
     private val detailMapper: PokemonDetailResponseMapper,
-    private val spSumMapper: SpeciesSumResponseMapper,
+    private val spSumMapper: VarietySumResponseMapper,
 ) : DataSource {
+    override fun persistDetailPokemon(pokemonDetail: PokemonDetail): Completable {
+        return Completable.error(UnsupportedOperationException())
+    }
+
+    override fun persistVariety(variety: Variety): Completable {
+        TODO("Not yet implemented")
+    }
+
+    override fun persistPokemonSum(pokemonSum: PokemonSum): Completable {
+        TODO("Not yet implemented")
+    }
+
     override fun getPokemonList(): Single<List<PokemonSum>> {
         return pokemonApi.getPokemonList(limit = 20, offset = 0)
             .filter { !it.results.isNullOrEmpty() }
@@ -50,9 +63,10 @@ class PokemonRemoteSource @Inject internal constructor(
             }
     }
 
-    override fun getSpeciesSums(names: List<String>): Single<List<Species>> {
-        return Observable.fromIterable(names)
-            .flatMap { pokemonApi.getSpeciesSum(it) }
+    override fun getVarietySums(names: List<String>): Single<List<Variety>> {
+        return Observable.just(names)
+            .flatMapIterable { arr -> arr }
+            .flatMap { pokemonApi.getVarietySum(it) }
             .map { spSumMapper.toData(it) }
             .toList()
 
@@ -64,7 +78,6 @@ class PokemonRemoteSource @Inject internal constructor(
             .flatMap { pokemonApi.getAbilityDetail(it.ability?.name.orEmpty()) }
             .toList()
             .toObservable()
-            .doOnNext { Timber.e("Abilities: ${it.size}") }
     }
 
     private fun getTypeDamages(pokemonResponse: PokemonDetailResponse): Observable<List<TypeDamageResponse>> {

@@ -9,9 +9,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.etomun.mobile.pokeapp.databinding.FragmentEvolutionsBinding
 import com.etomun.mobile.pokeapp.domain.result.PokemonDetail
-import com.etomun.mobile.pokeapp.domain.result.Species
+import com.etomun.mobile.pokeapp.domain.result.Variety
 import com.etomun.mobile.pokeapp.presentation.adapter.EvolutionAdapter
 import com.etomun.mobile.pokeapp.presentation.base.BaseFragment
+import timber.log.Timber
 import javax.inject.Inject
 
 class EvolutionsFragment : BaseFragment<FragmentEvolutionsBinding>(), PokemonEvolutions.View {
@@ -31,16 +32,21 @@ class EvolutionsFragment : BaseFragment<FragmentEvolutionsBinding>(), PokemonEvo
         presenter.attachView(this, this.lifecycle)
     }
 
-    override fun fetchSpeciesSums(spSums: List<Species>) {
+    override fun showVarietySums(spSums: List<Variety>) {
         detail.evolutions.mapIndexed { i, evo ->
-            val from = spSums.find { it.name == evo.from.name }
+            Timber.e("Evo from ${evo.fromName}")
+            val from = spSums.find { it.name == evo.fromName }
             if (from != null) {
-                detail.evolutions[i].from.sprite = from.sprite
+                Timber.e("Found From ${from.name} -- ${from.sprite}")
+                detail.evolutions[i].fromSprite = from.sprite
             }
 
-            val to = spSums.find { it.name == evo.to.name }
+
+            Timber.e("Evo to ${evo.toName}")
+            val to = spSums.find { it.name == evo.toName }
             if (to != null) {
-                detail.evolutions[i].to.sprite = to.sprite
+                Timber.e("Found To ${to.name} -- ${to.sprite}")
+                detail.evolutions[i].toSprite = to.sprite
             }
         }
 
@@ -52,11 +58,10 @@ class EvolutionsFragment : BaseFragment<FragmentEvolutionsBinding>(), PokemonEvo
     override fun onPresenterAttached() {
         val names: ArrayList<String> = arrayListOf()
         detail.evolutions.map {
-            names.add(it.from.name)
-            names.add(it.to.name)
+            names.add(it.fromName)
+            names.add(it.toName)
         }
-        names.distinct()
-        presenter.getSpeciesSums(names)
+        presenter.getVarietySums(names.toSet().toList())
     }
 
     override fun showMainProgressBar(show: Boolean) {

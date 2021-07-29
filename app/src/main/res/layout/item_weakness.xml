@@ -4,23 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:padding="@dimen/view_8">
+    android:padding="@dimen/view_4">
 
     <ImageView
         android:id="@+id/type"
-        android:layout_width="@dimen/view_36"
-        android:layout_height="@dimen/view_36"
+        android:layout_width="@dimen/view_32"
+        android:layout_height="@dimen/view_32"
         android:adjustViewBounds="true"
         android:contentDescription="@string/img_desc"
         android:scaleType="fitCenter" />
 
     <TextView
         android:id="@+id/multiplier"
-        android:layout_width="@dimen/view_56"
+        android:layout_width="@dimen/view_48"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:padding="@dimen/view_4"
-        android:textSize="@dimen/text_15"
         tools:text="1/4 x" />
 
 </LinearLayout>

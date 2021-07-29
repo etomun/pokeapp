@@ -34,20 +34,18 @@ class EvolutionAdapter(private val items: MutableList<Evolution>) :
         private val binding = ItemEvolutionBinding.bind(itemView)
         fun bind(item: Evolution) {
             Glide.with(itemView.context)
-                .load(item.from.sprite)
+                .load(item.fromSprite)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.fromType)
 
             Glide.with(itemView.context)
-                .load(item.to.sprite)
+                .load(item.toSprite)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.toType)
 
-            binding.fromName.text = item.from.name
-            binding.toName.text = item.to.name
-//            binding.trigger.text = item.trigger
-            val specs = if (item.minLevel != null) "Lv ${item.minLevel}" else ""
-            binding.specs.text = specs
+            binding.fromName.text = item.fromName
+            binding.toName.text = item.toName
+            binding.specs.text = item.triggerSpecs
         }
 
     }

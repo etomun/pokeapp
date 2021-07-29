@@ -124,26 +124,28 @@
 
                     <RadioButton
                         android:id="@+id/bt_stats"
-                        android:layout_width="@dimen/view_160"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/view_8"
+                        android:layout_margin="@dimen/view_4"
                         android:background="@drawable/bg_my_switch"
                         android:button="@null"
                         android:gravity="center"
-                        android:padding="@dimen/view_12"
+                        android:minWidth="@dimen/view_100"
+                        android:padding="@dimen/view_10"
                         android:text="@string/title_stats"
                         android:textAllCaps="true"
                         android:textColor="@color/radio_button_color" />
 
                     <RadioButton
                         android:id="@+id/bt_evolutions"
-                        android:layout_width="@dimen/view_160"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/view_8"
+                        android:layout_margin="@dimen/view_4"
                         android:background="@drawable/bg_my_switch"
                         android:button="@null"
                         android:gravity="center"
-                        android:padding="@dimen/view_12"
+                        android:minWidth="@dimen/view_100"
+                        android:padding="@dimen/view_10"
                         android:text="@string/title_evolutions"
                         android:textAllCaps="true"
                         android:textColor="@color/radio_button_color" />
