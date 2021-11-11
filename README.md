@@ -6,9 +6,6 @@
 - JetPack
   - Lifecycle - dispose of observing data when lifecycle state changes.
   - Room Persistence - construct a database using the abstract layer.
-- Architecture
-  - MVP Architecture
-  - Repository pattern
 - [Dagger](https://github.com/google/dagger) - A robust Dependency Inversion
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid) - Rich thread management
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs data
